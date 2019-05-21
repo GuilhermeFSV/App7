@@ -4,8 +4,40 @@
              xmlns:local="clr-namespace:App7"
              x:Class="App7.MainPage">
 
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <StackLayout>
+
+        <Button x:Name="Button1" Text="Cursos"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked1" />
+
+        <Button x:Name="Button2" Text="Disciplinas"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked2" />
+
+        <Button x:Name="Button3" Text="Alunos"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked3" />
+
+        <Button x:Name="Button4" Text="Professores"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked4" />
+
+        <Button x:Name="Button5" Text="Turmas"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked5" />
+
+        <Button x:Name="Button6" Text="Matrículas"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked6" />
+
+        <Button x:Name="Button7" Text="Históricos"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked7" />
+
+        <Button x:Name="Button8" Text="Contatos"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked8" />
+
+    </StackLayout>
 
 </ContentPage>

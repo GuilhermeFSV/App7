@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using App7.Modelos;
+
 
 namespace App7
 {

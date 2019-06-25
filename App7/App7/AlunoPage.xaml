@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App7.AlunoPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Picker x:Name="Picker0" Title="Alunos"></Picker>
+            <Button x:Name="Button0" Text="Novo Aluno"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked0" />
+            <Button x:Name="Button1" Text="Editar Aluno"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked1" />
+            <Picker x:Name="Picker1" Title="Matrículas"></Picker>
+            <Button x:Name="Button2" Text="Matricular no curso"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked2" />
+            <Picker x:Name="Picker2" Title="Contatos"></Picker>
+            <Button x:Name="Button3" Text="Salvar"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked3" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

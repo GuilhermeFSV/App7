@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App7.CursoPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="Label1" IsVisible="True" Text="Lista com todos os cursos: " TextColor="Black" />
+            <Picker x:Name="Picker1" Title="Cursos" SelectedIndexChanged="IndexChanged"></Picker>
+            <Label x:Name="Label2" IsVisible="True" Text="Lista com as disciplinas do curso selecionado: " TextColor="Black" />
+            <Picker x:Name="Picker2" Title="Lista de disciplinas"></Picker>
+            <Button x:Name="Button0" Text="Voltar"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked0" />
+            <Button x:Name="Button1" Text="Novo curso"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked1" />
+            <Button x:Name="Button2" Text="Editar curso"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked2" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

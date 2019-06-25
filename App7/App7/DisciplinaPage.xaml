@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App7.DisciplinaPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Picker x:Name="Picker" Title="Disciplinas"></Picker>
+            <Button x:Name="Button0" Text="Nova disciplina"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked0" />
+            <Button x:Name="Button1" Text="Editar disciplina"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked1" />
+            <Button x:Name="Button2" Text="Associar aos cursos"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked2" />
+            <Button x:Name="Button3" Text="Salvar"
+                HorizontalOptions="Center"
+                Clicked="OnButtonClicked3" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

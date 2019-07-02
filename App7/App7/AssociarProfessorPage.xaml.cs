@@ -17,13 +17,30 @@ namespace App7
 		{
 			InitializeComponent ();
         }
-        void OnButtonClicked0(object sender, EventArgs args)
+        protected override void OnAppearing()
         {
-            Navigation.PushModalAsync(new MainPage());
+            base.OnAppearing();
+            Picker.Items.Clear();
+            Picker2.Items.Clear();
+
+            foreach (Turma turma in Listas.Turmas)
+            {
+                Picker.Items.Add(turma.Ano + " - " + turma.Semestre);
+            }
+
+            foreach (Professor professor in Listas.Professores)
+            {
+                Picker2.Items.Add(professor.Nome + " - " + professor.Codigo);
+            }
+
         }
-        void OnButtonClicked1(object sender, EventArgs args)
+        void ButtonAssociar(object sender, EventArgs args)
         {
-            Navigation.PushModalAsync(new MainPage());
+
+        }
+        void ButtonRemover(object sender, EventArgs args)
+        {
+
         }
     }
 }

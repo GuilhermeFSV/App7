@@ -17,14 +17,43 @@ namespace App7
         {
             InitializeComponent();
         }
-        void OnButtonClicked1(object sender, EventArgs args)
+        protected override void OnAppearing()
         {
-            Navigation.PushModalAsync(new MatriculaPage());
+            base.OnAppearing();
+            Picker.Items.Clear();
 
+            foreach (Matricula matricula in Listas.Matriculas)
+            {
+                Picker.Items.Add(matricula.Aluno.Nome + " - " + matricula.Codigo);
+            }
         }
-        void OnButtonClicked2(object sender, EventArgs args)
+
+        void PickerSelecionado(object sender, EventArgs args)
         {
-            Navigation.PushModalAsync(new MatriculaPage());
+            Picker1.Items.Clear();
+            Matricula matricula = Listas.Matriculas.ElementAt(Picker.SelectedIndex);
+            foreach (Historico historico in matricula.Historicos)
+            {
+                Picker1.Items.Add(historico.Turma.Disciplina.Nome);
+            }
         }
+
+        void OnButtonClicked(object sender, EventArgs args)
+        {
+            if (Picker.SelectedIndex >= 0 && Picker1.SelectedIndex >= 0 && Entry.Text != null && Entry1.Text != null)
+            {
+                Historico historico = Listas.Matriculas.ElementAt(Picker.SelectedIndex).Historicos.ElementAt(Picker1.SelectedIndex);
+                historico.Notas.Add(new Nota()
+                {
+                    Valor = float.Parse(Entry.Text),
+                    Data = DateTime.Parse(Entry1.Text)
+                });
+
+
+                Navigation.PushModalAsync(new HistoricoPage());
+            }
+            else { }
+        }
+
     }
 }

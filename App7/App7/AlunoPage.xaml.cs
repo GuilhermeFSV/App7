@@ -15,31 +15,54 @@ namespace App7
 	{
 		public AlunoPage ()
 		{
-			InitializeComponent ();
+			InitializeComponent ();                
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Picker.Items.Clear();
+            Picker2.Items.Clear();
+            Picker3.Items.Clear();
 
             foreach (Aluno aluno in Listas.Alunos)
             {
-                Picker0.Items.Add(aluno.Nome);
+                Picker.Items.Add(aluno.Nome + " - " + aluno.Cpf);
             }
-           
+            foreach (Matricula matricula in Listas.Matriculas)
+            {
+                Picker2.Items.Add(matricula.Aluno.Nome + " - " + matricula.Curso.Nome);
+            }
         }
-        void OnButtonClicked0(object sender, EventArgs args)
-        {        
-             Aluno aluno = Listas.Alunos.ElementAt(Picker1.SelectedIndex);
 
-             Navigation.PushModalAsync(new NovoAlunoPage());
+        void PickerAluno(object sender, EventArgs args)
+        {
+            Picker3.Items.Clear();
+            Aluno aluno = Listas.Alunos.ElementAt(Picker.SelectedIndex);
+
+            foreach (Contato contato in aluno.Contatos)
+            {
+                foreach (string exibir in contato.Comunicar())
+                {
+                    Picker3.Items.Add(exibir);
+                }
+
+            }
         }
+
+        void OnButtonClicked(object sender, EventArgs args)
+        {
+            Navigation.PushModalAsync(new NovoAlunoPage());
+        }
+
         void OnButtonClicked1(object sender, EventArgs args)
         {
-            Navigation.PushModalAsync(new MainPage()); //(new EditarAlunoPage())
+            Navigation.PushModalAsync(new EditarAlunoPage());
         }
+
         void OnButtonClicked2(object sender, EventArgs args)
         {
             Navigation.PushModalAsync(new MatricularNoCursoPage());
-        }
-        void OnButtonClicked3(object sender, EventArgs args)
-        {
-            Navigation.PushModalAsync(new MainPage());
         }
     }
 }

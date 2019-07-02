@@ -17,7 +17,6 @@ namespace App7
 		{
 			InitializeComponent ();
 		}
-
         public void SelecionarCurso(object sender, EventArgs args)
         {
             Disciplina disciplina = Listas.Disciplinas.ElementAt(Picker0.SelectedIndex);
@@ -29,7 +28,6 @@ namespace App7
         {
             Navigation.PushModalAsync(new DisciplinaPage());
         }
-
         void OnButtonClicked1(object sender, EventArgs args)
         {
             Disciplina disciplina = Listas.Disciplinas.ElementAt(Picker0.SelectedIndex);
@@ -37,8 +35,6 @@ namespace App7
             disciplina.Cursos.RemoveAt(Picker0.SelectedIndex);
             curso.Disciplinas.RemoveAt(Picker1.SelectedIndex);
             Navigation.PushModalAsync(new DisciplinaPage());
-
-
         }
     }
 }

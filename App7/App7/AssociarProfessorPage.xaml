@@ -4,14 +4,14 @@
              x:Class="App7.AssociarProfessorPage">
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="Picker0" Title="Turma"></Picker>
-            <Picker x:Name="Picker1" Title="Professor"></Picker>
-            <Button x:Name="Button0" Text="Associar"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked0" />
-            <Button x:Name="Button1" Text="Remover"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked1" />
+            <Picker x:Name="Picker" Title="Turma"></Picker>
+            <Picker x:Name="Picker2" Title="Professor"></Picker>
+            <Button x:Name="associar" Text="Associar"
+            HorizontalOptions="Center"
+            Clicked="ButtonAssociar"/>
+            <Button x:Name="remover" Text="Remover"
+            HorizontalOptions="Center"
+            Clicked="ButtonRemover"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

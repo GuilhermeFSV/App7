@@ -15,29 +15,26 @@ namespace App7
 	{
         public ProfessorPage()
         {
-            InitializeComponent();
-
-
+            InitializeComponent();        
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Picker.Items.Clear();
             foreach (Professor professor in Listas.Professores)
             {
-                // adicionar um elemento na caixa de seleção
-                Picker.Items.Add(professor.Nome);
+                Picker.Items.Add(professor.Nome + " - " + professor.Cpf + " - " + professor.Codigo);
             }
         }
-        void OnButtonClicked0(object sender, EventArgs args)
-        {
-            Navigation.PushModalAsync(new MainPage());
-        }
-        void OnButtonClicked1(object sender, EventArgs args)
+
+        void OnButtonClicked(object sender, EventArgs args)
         {
             Navigation.PushModalAsync(new NovoProfessorPage());
         }
-        void OnButtonClicked2(object sender, EventArgs args)
+
+        void OnButtonClicked1(object sender, EventArgs args)
         {
-            Navigation.PushModalAsync(new MainPage()); //EditarProfessorPage()
+            Navigation.PushModalAsync(new EditarProfessorPage());
         }
-
-
-
     }
 }

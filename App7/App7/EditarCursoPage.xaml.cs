@@ -16,29 +16,41 @@ namespace App7
         public EditarCursoPage()
         {
             InitializeComponent();
-            foreach (Curso curso in Listas.Cursos)
-            {
-                Picker0.Items.Add(curso.Nome);
-            }           
-        }
-        
-        public void SelecionarCurso(object sender, EventArgs args)
-        {
-            Entry0.Text = Listas.Cursos.ElementAt(Picker0.SelectedIndex).Nome;
-        }
-        void OnButtonClicked0(object sender, EventArgs args)
-        {
-            Navigation.PushModalAsync(new MainPage());
         }
 
-        void OnButtonClicked1(object sender, EventArgs args)
+        protected override void OnAppearing()
         {
-            if (Picker0.SelectedIndex >= 0)
+            base.OnAppearing();
+            PickerListaCursosExistentes.Items.Clear();
+            foreach (Curso curso in Listas.Cursos)
             {
-                Curso curso = Listas.Cursos.ElementAt(Picker0.SelectedIndex);
-                curso.Disciplinas.RemoveAt(Picker0.SelectedIndex);
-                Navigation.PushModalAsync(new CursoPage());
-            }              
+                PickerListaCursosExistentes.Items.Add(curso.Nome);
+            }
+        }
+
+        private void ButtonSalvar_Clicked(object sender, EventArgs e)
+        {
+            Listas.Cursos.RemoveAt(PickerListaCursosExistentes.SelectedIndex);
+            PickerListaCursosExistentes.Items.Clear();
+            Curso curso = new Curso(NomeCurso.Text);
+            Listas.Cursos.Add(curso);
+            foreach (Curso Curso in Listas.Cursos)
+            {
+                PickerListaCursosExistentes.Items.Add(Curso.Nome);
+            }
+            DisplayAlert("Operação", "Curso editado!", "Ok");
+            NomeCurso.Text = " ";
+        }
+
+        private void ButtonExcluir_Clicked(object sender, EventArgs e)
+        {
+            Listas.Cursos.RemoveAt(PickerListaCursosExistentes.SelectedIndex);
+            PickerListaCursosExistentes.Items.Clear();
+            foreach (Curso curso in Listas.Cursos)
+            {
+                PickerListaCursosExistentes.Items.Add(curso.Nome);
+            }
+            DisplayAlert("Operação", "Curso removido!", "Ok");
         }
     }
- }
+}

@@ -17,49 +17,34 @@ namespace App7
         {
             InitializeComponent();
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            PickerCursos.Items.Clear();
 
-        void OnButtonClicked0(object sender, EventArgs args)
-        {          
             foreach (Curso curso in Listas.Cursos)
             {
-                Picker1.Items.Add(curso.Nome);
+                PickerCursos.Items.Add(curso.Nome);
             }
-            Navigation.PushModalAsync(new MainPage());
+            PickerListaDisciplinas.Items.Clear();
         }
-
-        void IndexChanged(object sender, EventArgs args)
+        void PickerSelecionado(object sender, EventArgs args)
         {
-            Curso curso1 = Listas.Cursos.ElementAt(Picker1.SelectedIndex);
+            PickerListaDisciplinas.Items.Clear();
+            Curso curso1 = Listas.Cursos.ElementAt(PickerCursos.SelectedIndex);
             foreach (Disciplina disciplina in curso1.Disciplinas)
             {
-                Picker2.Items.Add(disciplina.Nome);
+                PickerListaDisciplinas.Items.Add(disciplina.Nome);
             }
         }
 
-        void OnButtonClicked1(object sender, EventArgs args)
+        void ButtonNovo_Clicked(object sender, EventArgs args)
         {
             Navigation.PushModalAsync(new NovoCursoPage());
         }
-
-        void OnButtonClicked2(object sender, EventArgs args)
+        void ButtonEditar_Clicked(object sender, EventArgs args)
         {
             Navigation.PushModalAsync(new EditarCursoPage());
-        }
-        void OnButtonClicked3(object sender, EventArgs args)
-        {
-            Navigation.PushModalAsync(new MainPage());
-        }
-        void OnButtonClicked4(object sender, EventArgs args)
-        {
-            Navigation.PushModalAsync(new MainPage());
-        }
-        void OnButtonClicked5(object sender, EventArgs args)
-        {
-            Navigation.PushModalAsync(new MainPage());
-        }
-        void OnButtonClicked6(object sender, EventArgs args)
-        {
-            Navigation.PushModalAsync(new MainPage());
         }
 
     }

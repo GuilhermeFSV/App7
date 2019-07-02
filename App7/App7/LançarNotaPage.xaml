@@ -4,17 +4,22 @@
              x:Class="App7.LançarNotaPage">
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="Picker1" Title="Matrícula"></Picker>
-            <Picker x:Name="Picker2" Title="Histórico"></Picker>
-            <Entry x:Name="Entry1" Keyboard="Numeric" Placeholder="Nota" />
-            <Entry x:Name="Entry2" Keyboard="Numeric" Placeholder="Data" />
-            <Button x:Name="Button1" Text="Lançar"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked1" />
+            <Picker x:Name="Picker" Title="Matricula">
+                <Picker.Items></Picker.Items>
+            </Picker>
+            <Picker x:Name="Picker1" Title="Historico">
+                <Picker.Items></Picker.Items>
+            </Picker>
 
-            <Button x:Name="Button2" Text="Cancelar"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked2" />
+            <Entry x:Name="Entry" Placeholder="Nota" />
+            <Entry x:Name="Entry1" Placeholder="Data" />
+
+            <Button x:Name="Botao" Text="Lançar"
+            VerticalOptions="EndAndExpand"
+            HorizontalOptions="Center" 
+            Clicked="OnButtonClicked" />
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

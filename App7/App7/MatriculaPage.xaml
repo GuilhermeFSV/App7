@@ -4,14 +4,17 @@
              x:Class="App7.MatriculaPage">
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="Picker1" Title="Matrícula"></Picker>
-            <Picker x:Name="Picker2" Title="Turma"></Picker>
-            <Button x:Name="Button1" Text="Associar"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked1" />
-            <Button x:Name="Button2" Text="Remover"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked2" />
+            <Picker x:Name="Picker1" Title="Curso"></Picker>
+
+            <Picker x:Name="Picker2" Title="Alunos"></Picker>
+
+            <Button x:Name="butAssociar" Text="Associar"
+                    HorizontalOptions="Center"
+                    Clicked="OnButtonClicked"/>
+
+            <Button x:Name="butRemover" Text="Remover"
+                    HorizontalOptions="Center"
+                    Clicked="OnButtonClicked2"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -18,21 +18,13 @@ namespace App7
             InitializeComponent();
         }
 
-        void OnButtonClicked0(object sender, EventArgs args)
+        void OnButtonSalvar(object Sender, EventArgs args)
         {
-            // verificar as entradas
-            // verificar se os campos foram preenchidos
-            if (Entry0.Text != null &&
-                Entry0.Text.Length > 0)
-            {
-                // criar um aluno e adicionar na lista
-                Listas.Cursos.Add(new Curso(Entry0.Text));
-
-                Entry0.Text = "";
-            }
-
-            Navigation.PushModalAsync(new CursoPage());
+            Curso curso = new Curso(NomeDoCurso.Text);
+            Listas.Cursos.Add(curso);
+            DisplayAlert("Cadastro", "Curso cadastrado", "Ok");
+            NomeDoCurso.Text = " ";
+            //Navigation.PushModalAsync(new CursosPage());
         }
-
     }
 }

@@ -4,10 +4,10 @@
              x:Class="App7.NovoCursoPage">
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="Entry0" Placeholder="Nome do curso" />
-            <Button x:Name="Button0" Text="Salvar"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked0" />
+            <Entry x:Name="NomeDoCurso" Placeholder="Nome do curso"/>
+            <Button x:Name="Salvar" Text="Salvar"
+            HorizontalOptions="Center" 
+            Clicked="OnButtonSalvar" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

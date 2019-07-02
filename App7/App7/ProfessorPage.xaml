@@ -4,16 +4,17 @@
              x:Class="App7.ProfessorPage">
     <ContentPage.Content>
         <StackLayout>
+
             <Picker x:Name="Picker" Title="Professores"></Picker>
-            <Button x:Name="Button0" Text="Salvar"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked0" />
-            <Button x:Name="Button1" Text="Novo Professor"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked1" />
-            <Button x:Name="Button2" Text="Editar Professor"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked2" />
+
+            <Button x:Name="butNovo" Text="Novo Professor"
+                    HorizontalOptions="Center"
+                    Clicked="OnButtonClicked"/>
+
+            <Button x:Name="butEditar" Text="Editar Professor"
+                    HorizontalOptions="Center"
+                    Clicked="OnButtonClicked1"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

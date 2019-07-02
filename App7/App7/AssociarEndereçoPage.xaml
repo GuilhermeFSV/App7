@@ -4,8 +4,15 @@
              x:Class="App7.AssociarEndereçoPage">
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="Entry1"  Placeholder="Rua" />
-            <Entry x:Name="Entry2"  Placeholder="Cidade" />
+            <Picker x:Name="Picker" Title="Pessoa">
+                <Picker.Items></Picker.Items>
+            </Picker>
+            <Entry x:Name="Entry" Placeholder="Rua" />
+            <Entry x:Name="Entry1" Placeholder="Cidade" />
+            <Button x:Name="Botao" Text="Lançar Endereço"
+            VerticalOptions="EndAndExpand"
+            HorizontalOptions="Center" 
+            Clicked="OnButtonClicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

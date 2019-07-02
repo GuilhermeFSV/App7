@@ -4,12 +4,17 @@
              x:Class="App7.NovoProfessorPage">
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="Entry0" Placeholder="Nome" />
-            <Entry x:Name="Entry1" Keyboard="Numeric" Placeholder="CPF" />
-            <Entry x:Name="Entry2" Keyboard="Numeric" Placeholder="Código" />
-            <Button x:Name="Button0" Text="Salvar"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked0" />
+
+            <Entry x:Name="Entry1" Placeholder="Nome do Professor"/>
+
+            <Entry x:Name="Entry2" Placeholder="CPF do Professor"/>
+
+            <Entry x:Name="Entry3" Placeholder="Código do Professor"/>
+
+            <Button x:Name="butSalvar" Text="Salvar"
+                    HorizontalOptions="Center"
+                    Clicked="OnButtonClicked"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

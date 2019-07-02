@@ -18,23 +18,44 @@ namespace App7
 			InitializeComponent ();
 		}
 
-        void OnButtonClicked0(object sender, EventArgs args)
+        protected override void OnAppearing()
         {
-            // verificar as entradas
-            // verificar se os campos foram preenchidos
-            if (Entry0.Text != null &&
-                Entry0.Text.Length > 0 &&
-                Entry1.Text != null &&
-                Entry1.Text.Length > 0 &&
-                Picker.SelectedIndex >= 0)
+            base.OnAppearing();
+            PickerPreRequisito.Items.Clear();
+            foreach (Disciplina disciplina in Listas.Disciplinas)
             {
-                // criar um aluno e adicionar na lista
-              //  Listas.Disciplinas.Add(new Disciplina(Entry0.Text, ));
-
-                Entry0.Text = "";
+                PickerPreRequisito.Items.Add(disciplina.Nome + " - " + disciplina.Horas);
             }
+        }
 
-            Navigation.PushModalAsync(new DisciplinaPage());
+
+        private void ButtonSalvar_Clicked(object sender, EventArgs e)
+        {
+
+            if (EntryNome.Text != null && EntryHoras.Text != null)
+            {
+                Disciplina disciplina = new Disciplina(EntryNome.Text);
+                disciplina.Horas = Convert.ToInt32(EntryHoras.Text);
+                if (PickerPreRequisito.SelectedIndex >= 0)
+                {
+                    disciplina.Requisito = Listas.Disciplinas.ElementAt(PickerPreRequisito.SelectedIndex);
+                }
+                Listas.Disciplinas.Add(disciplina);
+
+                PickerPreRequisito.Items.Clear();
+                foreach (Disciplina Disciplina in Listas.Disciplinas)
+                {
+                    PickerPreRequisito.Items.Add(Disciplina.Nome);
+                }
+
+                DisplayAlert("Cadastro", "Disciplina cadastrada", "Ok");
+                EntryNome.Text = " ";
+                EntryHoras.Text = " ";
+            }
+            else
+            {
+                DisplayAlert("Cadastro", "Campo sem preencher", "Ok");
+            }
         }
     }
 }

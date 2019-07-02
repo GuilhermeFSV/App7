@@ -4,12 +4,15 @@
              x:Class="App7.NovaDisciplinaPage">
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="Entry0" Keyboard="Numeric" Placeholder="Nome" />
-            <Entry x:Name="Entry1" Keyboard="Numeric" Placeholder="Horas" />
-            <Picker x:Name="Picker" Title="Pré-requisito"></Picker>
-            <Button x:Name="Button0" Text="Salvar"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked0" />
+            <Entry x:Name="EntryNome" Placeholder="Nome"/>
+            <Entry x:Name="EntryHoras" Placeholder="Horas"/>
+            <Picker x:Name="PickerPreRequisito" Title="Pré-requisito">
+            </Picker>
+            <Button x:Name="ButtonSalvar"
+                    Clicked="ButtonSalvar_Clicked"
+                    Text="Salvar"
+                    VerticalOptions="EndAndExpand"
+                    HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

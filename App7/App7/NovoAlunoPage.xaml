@@ -3,12 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App7.NovoAlunoPage">
     <ContentPage.Content>
-        <StackLayout>    
-            <Entry x:Name="Entry0" Placeholder="Nome" />
-            <Entry x:Name="Entry1" Keyboard="Numeric" Placeholder="CPF" />
-            <Button x:Name="Button0" Text="Salvar"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked0" />
+        <StackLayout>
+            <Entry x:Name="Entry1" Placeholder="Nome do Aluno"/>
+
+            <Entry x:Name="Entry2" Placeholder="CPF do Aluno"/>
+
+            <Button x:Name="butSalvar" Text="Salvar"
+                    HorizontalOptions="Center"
+                    Clicked="OnButtonClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

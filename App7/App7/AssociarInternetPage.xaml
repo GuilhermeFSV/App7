@@ -4,8 +4,15 @@
              x:Class="App7.AssociarInternetPage">
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="Entry1" Placeholder="email" />
-            <Entry x:Name="Entry2" Placeholder="site" />
+            <Picker x:Name="Picker" Title="Pessoas">
+                <Picker.Items></Picker.Items>
+            </Picker>
+            <Entry x:Name="Entry" Placeholder="E-mail" />
+            <Entry x:Name="Entry1" Placeholder="Site" />
+            <Button x:Name="Botao" Text="Associar Internet"
+            VerticalOptions="EndAndExpand"
+            HorizontalOptions="Center" 
+            Clicked="OnButtonClicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

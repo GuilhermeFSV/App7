@@ -4,19 +4,18 @@
              x:Class="App7.CursoPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label x:Name="Label1" IsVisible="True" Text="Lista com todos os cursos: " TextColor="Black" />
-            <Picker x:Name="Picker1" Title="Cursos" SelectedIndexChanged="IndexChanged"></Picker>
-            <Label x:Name="Label2" IsVisible="True" Text="Lista com as disciplinas do curso selecionado: " TextColor="Black" />
-            <Picker x:Name="Picker2" Title="Lista de disciplinas"></Picker>
-            <Button x:Name="Button0" Text="Voltar"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked0" />
-            <Button x:Name="Button1" Text="Novo curso"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked1" />
-            <Button x:Name="Button2" Text="Editar curso"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked2" />
+            <Picker x:Name="PickerCursos" Title="Cursos" SelectedIndexChanged="PickerSelecionado">
+            </Picker>
+            <Picker x:Name="PickerListaDisciplinas" Title="Lista de Disciplinas">
+            </Picker>
+            <Button x:Name="ButtonNovo"
+                    Clicked="ButtonNovo_Clicked"
+                    Text="Novo Curso"
+                    HorizontalOptions="Center"/>
+            <Button x:Name="ButtonEditar"
+                    Clicked="ButtonEditar_Clicked"
+                    Text="Editar Curso"
+                    HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -17,7 +17,31 @@ namespace App7
         {
             InitializeComponent();
         }
-        void OnButtonClicked0(object sender, EventArgs args)
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Picker.Items.Clear();
+
+            foreach (Pessoa pessoa in Listas.Pessoas)
+            {
+                Picker.Items.Add(pessoa.Nome);
+            }
+
+        }
+        void PickerSelecionado(object sender, EventArgs args)
+        {
+            Picker1.Items.Clear();
+            Pessoa pessoa = Listas.Pessoas.ElementAt(Picker.SelectedIndex);    
+            foreach (Contato contato in pessoa.Contatos)
+            {
+                foreach (string exibir in contato.Comunicar())
+                {
+                    Picker1.Items.Add(exibir);
+                }
+
+            }
+        }
+        void OnButtonClicked(object sender, EventArgs args)
         {
             Navigation.PushModalAsync(new AssociarFamiliaPage());
         }
@@ -36,15 +60,19 @@ namespace App7
         void OnButtonClicked4(object sender, EventArgs args)
         {
             Navigation.PushModalAsync(new MainPage());
+
         }
         void OnButtonClicked5(object sender, EventArgs args)
-        {
+        {        
             Navigation.PushModalAsync(new MainPage());
         }
         void OnButtonClicked6(object sender, EventArgs args)
         {
-            Navigation.PushModalAsync(new MainPage());
+            if (Picker.SelectedIndex > -1)
+            {
+                Listas.Pessoas.RemoveAt(Picker.SelectedIndex);
+                Navigation.PushModalAsync(new ContatoPage());
+            }
         }
-
     }
 }

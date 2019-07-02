@@ -17,25 +17,21 @@ namespace App7
 		{
 			InitializeComponent ();
 		}
-        void OnButtonClicked0(object sender, EventArgs args)
+        void OnButtonClicked(object sender, EventArgs args)
         {
-            // verificar as entradas
-            // verificar se os campos foram preenchidos
-            if (Entry0.Text != null &&
-                Entry0.Text.Length > 0 &&
-                Entry1.Text != null &&
-                Entry1.Text.Length > 0)
+            if (Entry1.Text != null && Entry2.Text != null)
             {
+                Aluno aluno = new Aluno(Entry1.Text, Convert.ToInt32(Entry2.Text));
 
-                int cpf = int.Parse(Entry1.Text);
-                // criar um aluno e adicionar na lista
-                Listas.Alunos.Add(new Aluno(Entry0.Text, cpf));
 
-                Entry0.Text = "";
-                Entry1.Text = "";
+                Listas.Alunos.Add(aluno);
+                Listas.Pessoas.Add(aluno);
+                DisplayAlert("App7", "Aluno salvo com sucesso.", "OK");
             }
-
-            Navigation.PushModalAsync(new AlunoPage());
+            else
+            {
+                DisplayAlert("Erro", "Há campos sem preencher.", "OK");
+            }
         }
     }
 }

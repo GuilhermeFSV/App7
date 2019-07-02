@@ -4,21 +4,20 @@
              x:Class="App7.TurmaPage">
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="Picker1" Title="Turmas"></Picker>
-            <Picker x:Name="Picker2" Title="Disciplina"></Picker>
-            <Picker x:Name="Picker3" Title="Professores"></Picker>
-            <Button x:Name="Button0" Text="Associar Professor"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked0" />
-            <Button x:Name="Button1" Text="Nova Turma"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked1" />
-            <Button x:Name="Button2" Text="Editar Turma"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked2" />
-            <Button x:Name="Button3" Text="Voltar"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked3" />
+
+            <Picker x:Name="Picker" Title="Matricula">
+                <Picker.Items></Picker.Items>
+            </Picker>
+
+            <Picker x:Name="Picker1" Title="Historico">
+                <Picker.Items></Picker.Items>
+            </Picker>
+
+            <Button x:Name="Botao" Text="Remover Notas"
+            VerticalOptions="EndAndExpand"
+            HorizontalOptions="Center" 
+            Clicked="OnButtonClicked" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

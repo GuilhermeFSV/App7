@@ -17,27 +17,40 @@ namespace App7
 		{
 			InitializeComponent ();
 		}
-        void OnButtonClicked0(object sender, EventArgs args)
+        protected override void OnAppearing()
         {
-            // verificar as entradas
-            // verificar se os campos foram preenchidos
-            if (Entry0.Text != null &&
-                Entry0.Text.Length > 0 &&
-                Entry1.Text != null &&
-                Entry1.Text.Length > 0 && 
-                Picker1.SelectedIndex >= 0 &&
-                Picker2.SelectedIndex >= 0)
+            base.OnAppearing();
+            Picker.Items.Clear();
+            Picker2.Items.Clear();
+
+            foreach (Disciplina disciplina in Listas.Disciplinas)
             {
+                Picker.Items.Add(disciplina.Nome + " - " + disciplina.Horas);
+            }
+            foreach (Professor professor in Listas.Professores)
+            {
+                Picker2.Items.Add(professor.Nome + " - " + professor.Codigo);
+            }
+        }
 
-                int cpf = int.Parse(Entry1.Text);
-                // criar um aluno e adicionar na lista
-               // Listas.Turmas.Add(new Turma(Entry0.Text, cpf));
 
-                Entry0.Text = "";
-                Entry1.Text = "";
+        void ButtonSalvar(object sender, EventArgs args)
+        {
+            if (Picker.Items.Count > 0 && Entry.Text != null && Picker2.Items.Count > 0 && Entry2.Text != null)
+            {
+                Turma turma = new Turma(Listas.Disciplinas.ElementAt(Picker.SelectedIndex), Listas.Professores.ElementAt(Picker2.SelectedIndex));
+                turma.Ano = Convert.ToInt32(Entry.Text);
+                turma.Semestre = Convert.ToInt32(Entry2.Text);
+
+                Listas.Turmas.Add(turma);
+
+                DisplayAlert("Sucess!", "Turma Cadastrada com Sucesso", "Ok");
+            }
+            else
+            {
+                DisplayAlert("Fail", "Não foi possivel cadastrar a turma", "Ok");
             }
 
-            Navigation.PushModalAsync(new AlunoPage());
         }
     }
 }

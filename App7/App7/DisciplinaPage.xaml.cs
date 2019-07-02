@@ -15,39 +15,42 @@ namespace App7
     {
         public DisciplinaPage()
         {
-            {
+            
                 InitializeComponent();
-            }
+        }
+            
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            PickerDisciplina.Items.Clear();
             foreach (Disciplina disciplina in Listas.Disciplinas)
             {
+                if (disciplina.Requisito == null)
+                {
+                    PickerDisciplina.Items.Add(disciplina.Nome + " - " + disciplina.Horas + "h");
 
-                Picker.Items.Add(disciplina.Nome);
+                }
+                else
+                {
+                    PickerDisciplina.Items.Add(disciplina.Nome + "-" + disciplina.Horas + "h" + "pré requisito :" + disciplina.Requisito.Nome);
+                }
 
             }
-
         }
-        void OnButtonClicked0(object sender, EventArgs args)
-        {
 
+        private void ButtonNova_Clicked(object sender, EventArgs e)
+        {
             Navigation.PushModalAsync(new NovaDisciplinaPage());
-
         }
-        void OnButtonClicked1(object sender, EventArgs args)
-        {
 
+        private void ButtonEditar_Clicked(object sender, EventArgs e)
+        {
             Navigation.PushModalAsync(new EditarDisciplinaPage());
-
         }
-        void OnButtonClicked2(object sender, EventArgs args)
+
+        private void ButtonAssociar_Clicked(object sender, EventArgs e)
         {
-
-            Navigation.PushModalAsync(new AssociarAoCursoPage());
-
-        }
-        void OnButtonClicked3(object sender, EventArgs args)
-        {
-
-            Navigation.PushModalAsync(new MainPage());
+            Navigation.PushModalAsync(new AssociarDisciplinaPage());//********************************
 
         }
     }

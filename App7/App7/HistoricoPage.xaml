@@ -4,22 +4,41 @@
              x:Class="App7.HistoricoPage">
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="Picker1" Title="Matícula"></Picker>
-            <Picker x:Name="Picker2" Title="Histórico"></Picker>
-            <Entry x:Name="Entry" Keyboard="Numeric" Placeholder="Faltas" />
-            <Picker x:Name="Picker3" Title="Notas"></Picker>
-            <Button x:Name="Button0" Text="Lançar Notas"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked0" />
-            <Button x:Name="Button1" Text="Remover Notas"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked1" />
-            <Button x:Name="Button2" Text="Lançar Faltas"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked2" />
-            <Button x:Name="Button3" Text="Salvar"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked3" />
+            <Picker x:Name="Picker" Title="Matricula" SelectedIndexChanged="PickerSelecionado" >
+                <Picker.Items></Picker.Items>
+            </Picker>
+            <Picker x:Name="Picker1" Title="Historico" SelectedIndexChanged="PickerSelecionado1" >
+                <Picker.Items></Picker.Items>
+            </Picker>
+
+            <Picker x:Name="Picker2" Title="Notas" >
+                <Picker.Items></Picker.Items>
+            </Picker>
+
+            <Button x:Name="Botao" Text="Lançar notas"
+            VerticalOptions="EndAndExpand"
+            HorizontalOptions="Center" 
+            Clicked="OnButtonClicked" />
+
+            <Button x:Name="Botao1" Text="Remover Nota"
+            VerticalOptions="EndAndExpand"
+            HorizontalOptions="Center" 
+            Clicked="OnButtonClicked1" />
+
+            <Button x:Name="Botao2" Text="Lançar falta"
+            VerticalOptions="EndAndExpand"
+            HorizontalOptions="Center" 
+            Clicked="OnButtonClicked2" />
+
+            <Label x:Name="Label1" IsVisible="True"
+            TextColor="Blue" />
+
+            <Label x:Name="Label2" IsVisible="True"
+             TextColor="Blue" />
+
+            <Label x:Name="Labe3" IsVisible="True"
+            TextColor="Blue" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

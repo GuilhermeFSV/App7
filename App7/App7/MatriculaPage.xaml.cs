@@ -16,41 +16,43 @@ namespace App7
         public MatriculaPage ()
         {
             InitializeComponent ();
-            // para todos os alunos da lista
-            foreach (Matricula matricula in Listas.Matriculas)  
+     
+            foreach (Curso curso in Listas.Cursos)
             {
-                // adicionar um elemento na caixa de seleção
-                Picker1.Items.Add(matricula.Aluno.Nome);
+                Picker1.Items.Add(curso.Nome);
             }
-            // para todos as disciplinas do vetor
-            foreach (Turma turma in Listas.Turmas)
-            {
-                //int cpf = int.Parse(Entry1.Text);
-                // adicionar um elemento na caixa de seleção
-               // int turma = int.Parse(Picker2.SelectedIndex);
-                Picker2.Items.Add(turma.Semestre.ToString() + "-" + turma.Disciplina.Nome);
 
+            foreach (Aluno aluno in Listas.Alunos)
+            {
+                Picker2.Items.Add(aluno.Nome);
             }
         }
 
-        void OnButtonClicked0(object sender, EventArgs args)
+        void OnButtonClicked(object sender, EventArgs args)
         {
-            Navigation.PushModalAsync(new MainPage());
+            if (Picker1.Items.Count > 0 && Picker2.Items.Count > 0)
+            {
+                Aluno aluno = Listas.Alunos.ElementAt(Picker2.SelectedIndex);
+                Curso curso = Listas.Cursos.ElementAt(Picker1.SelectedIndex);
+
+                Matricula matricula = new Matricula(aluno, curso);
+                matricula.Ano = 2019;
+                Random cod = new Random();
+                matricula.Codigo = "2019" + Convert.ToString(cod.Next());
+                Listas.Matriculas.Add(matricula);
+
+                DisplayAlert("Aluno", "Aluno associado ao curso!", "Ok");
+            }
         }
-        void OnButtonClicked1(object sender, EventArgs args)
-        {
-            Navigation.PushModalAsync(new MainPage());
-        }
+
         void OnButtonClicked2(object sender, EventArgs args)
         {
-            if (Picker1.SelectedIndex >= 0 && Picker2.SelectedIndex >=0)
+            if (Picker1.Items.Count > 0 && Picker2.Items.Count > 0)
             {
-                Matricula matricula = Listas.Matriculas.ElementAt(Picker1.SelectedIndex);
-                matricula.Historicos.RemoveAt(Picker1.SelectedIndex);
-                Navigation.PushModalAsync(new CursoPage());
-            }
-            Navigation.PushModalAsync(new MainPage());
-        }
+                Listas.Matriculas.RemoveAt(Picker1.SelectedIndex);
 
+                DisplayAlert("Aluno", "Aluno removido do curso!", "Ok");
+            }
+        }
     }
 }

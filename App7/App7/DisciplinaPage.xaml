@@ -4,19 +4,20 @@
              x:Class="App7.DisciplinaPage">
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="Picker" Title="Disciplinas"></Picker>
-            <Button x:Name="Button0" Text="Nova disciplina"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked0" />
-            <Button x:Name="Button1" Text="Editar disciplina"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked1" />
-            <Button x:Name="Button2" Text="Associar aos cursos"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked2" />
-            <Button x:Name="Button3" Text="Salvar"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked3" />
+            <Picker x:Name="PickerDisciplina" Title="Disciplina">
+            </Picker>
+            <Button x:Name="ButtonNova"
+                    Clicked="ButtonNova_Clicked"
+                    Text="Nova Disciplina"
+                    HorizontalOptions="Center"/>
+            <Button x:Name="ButtonEditar"
+                    Clicked="ButtonEditar_Clicked"
+                    Text="Editar Disciplina"
+                    HorizontalOptions="Center"/>
+            <Button x:Name="ButtonAssociar"
+                    Clicked="ButtonAssociar_Clicked"
+                    Text="Associar aos Cursos"
+                    HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -4,13 +4,13 @@
              x:Class="App7.NovaTurmaPage">
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="Picker1" Title="Disciplina"></Picker>
-            <Picker x:Name="Picker2" Title="Professor"></Picker>
-            <Entry x:Name="Entry0" Placeholder="Ano" />
-            <Entry x:Name="Entry1" Keyboard="Numeric" Placeholder="Semestre" />
-            <Button x:Name="Button0" Text="Salvar"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked0" />
+            <Entry x:Name="Entry1" Placeholder="Nome do Aluno"/>
+
+            <Entry x:Name="Entry2" Placeholder="CPF do Aluno"/>
+
+            <Button x:Name="butSalvar" Text="Salvar"
+                    HorizontalOptions="Center"
+                    Clicked="OnButtonClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

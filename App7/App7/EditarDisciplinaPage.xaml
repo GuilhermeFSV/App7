@@ -4,16 +4,20 @@
              x:Class="App7.EditarDisciplinaPage">
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="Picker0" Title="Disciplina"
-                    SelectedIndexChanged="SelecionarDisciplina">
-                </Picker>
-                <Entry x:Name="Entry0" Placeholder="Nome da Disciplina" />
-                <Button x:Name="Button0" Text="Salvar"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked0" />
-                <Button x:Name="Button1" Text="Excluir"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked1" />
+            <Picker x:Name="PickerListaDisciplinasExistentes" Title="Disciplinas">
+            </Picker>
+            <Entry x:Name="NomeDisciplinas" Placeholder="Nome da disciplina"/>
+            <Entry x:Name="EntryHoras" Placeholder="Horas"/>
+            <Picker x:Name="PickerPreRequisito" Title="Pré-requisito">
+            </Picker>
+            <Button x:Name="ButtonSalvar"
+                    Clicked="ButtonSalvar_Clicked"
+                    Text="Salvar"
+                    HorizontalOptions="Center"/>
+            <Button x:Name="ButtonExcluir"
+                    Clicked="ButtonExcluir_Clicked"
+                    Text="Excluir"
+                    HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

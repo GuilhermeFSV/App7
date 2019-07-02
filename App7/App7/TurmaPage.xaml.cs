@@ -18,21 +18,41 @@ namespace App7
 			InitializeComponent ();
 		}
 
-        void OnButtonClicked0(object sender, EventArgs args)
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Picker.Items.Clear();
+            Picker2.Items.Clear();
+            Picker3.Items.Clear();
+
+            foreach (Disciplina disciplina in Listas.Disciplinas)
+            {
+                Picker.Items.Add(disciplina.Nome + " - " + disciplina.Horas);
+            }
+
+            foreach (Turma turmas in Listas.Turmas)
+            {
+                Picker2.Items.Add(turmas.Ano + " - " + turmas.Disciplina.Nome + " - " + turmas.Semestre);
+            }
+
+            foreach (Professor professor in Listas.Professores)
+            {
+                Picker3.Items.Add(professor.Nome + " - " + professor.Codigo);
+            }
+        }
+
+
+        void ButtonAssociarProfessor(object sender, EventArgs args)
         {
             Navigation.PushModalAsync(new AssociarProfessorPage());
         }
-        void OnButtonClicked1(object sender, EventArgs args)
+        void ButtonNovaTurma(object sender, EventArgs args)
         {
             Navigation.PushModalAsync(new NovaTurmaPage());
         }
-        void OnButtonClicked2(object sender, EventArgs args)
+        void ButtonEditarTurma(object sender, EventArgs args)
         {
-            Navigation.PushModalAsync(new MainPage()); //EditarTurmaPage()
-        }
-        void OnButtonClicked3(object sender, EventArgs args)
-        {
-            Navigation.PushModalAsync(new MainPage());
+            Navigation.PushModalAsync(new EditarTurmaPage());
         }
     }
 }

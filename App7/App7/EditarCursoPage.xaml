@@ -4,15 +4,17 @@
              x:Class="App7.EditarCursoPage">
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="Picker0" Title="Cursos"
-                    SelectedIndexChanged="SelecionarCurso"></Picker>
-            <Entry x:Name="Entry0" Placeholder="Nome do curso" />
-            <Button x:Name="Button0" Text="Salvar"
-                HorizontalOptions="Center"
-                Clicked="SelecionarCurso" />
-            <Button x:Name="Button1" Text="Excluir"
-                HorizontalOptions="Center"
-                Clicked="OnButtonClicked1" />
+            <Picker x:Name="PickerListaCursosExistentes" Title="Cursos">
+            </Picker>
+            <Entry x:Name="NomeCurso" Placeholder="Nome do curso"/>
+            <Button x:Name="ButtonSalvar"
+                    Clicked="ButtonSalvar_Clicked"
+                    Text="Salvar"
+                    HorizontalOptions="Center"/>
+            <Button x:Name="ButtonExcluir"
+                    Clicked="ButtonExcluir_Clicked"
+                    Text="Excluir"
+                    HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -4,10 +4,16 @@
              x:Class="App7.AssociarFamiliaPage">
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="Picker1" Title="Pessoa"></Picker>
-            <Entry x:Name="Entry0" Placeholder="Nome" />
-            <Entry x:Name="Entry1" Keyboard="Numeric" Placeholder="Periodo" />
+            <Picker x:Name="Picker" Title="Pessoa">
+                <Picker.Items></Picker.Items>
+            </Picker>
+            <Entry x:Name="Entry" Placeholder="Nome" />
+            <Entry x:Name="Entry1" Placeholder="CPF" />
             <Entry x:Name="Entry2" Placeholder="Tipo de parentesco" />
+            <Button x:Name="Botao" Text="Associar"
+                VerticalOptions="EndAndExpand"
+                HorizontalOptions="Center" 
+                Clicked="OnButtonClicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

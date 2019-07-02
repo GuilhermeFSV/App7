@@ -15,31 +15,70 @@ namespace App7
 	{
         public EditarDisciplinaPage()
         {
-            InitializeComponent();
+            InitializeComponent();         
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            PickerListaDisciplinasExistentes.Items.Clear();
+            PickerPreRequisito.Items.Clear();
             foreach (Disciplina disciplina in Listas.Disciplinas)
             {
-                Picker0.Items.Add(disciplina.Nome);
+                if (disciplina.Requisito != null)
+                {
+                    PickerListaDisciplinasExistentes.Items.Add(disciplina.Nome + " - " + disciplina.Horas + "h " + " - " + "Pré requisito: " + disciplina.Requisito.Nome);
+                }
+                else
+                {
+                    PickerListaDisciplinasExistentes.Items.Add(disciplina.Nome + " - " + disciplina.Horas + "h");
+                }
             }
-        }
-
-        public void SelecionarDisciplina(object sender, EventArgs args)
-        {
-            Entry0.Text = Listas.Disciplinas.ElementAt(Picker0.SelectedIndex).Nome;
-            Navigation.PushModalAsync(new DisciplinaPage());
-        }
-
-        void OnButtonClicked1(object sender, EventArgs args)
-        {
-            if (Picker0.SelectedIndex >= 0)
+            foreach (Disciplina disciplina2 in Listas.Disciplinas)
             {
-                Disciplina disciplina = Listas.Disciplinas.ElementAt(Picker0.SelectedIndex);
-                disciplina.Cursos.RemoveAt(Picker0.SelectedIndex);
-                Navigation.PushModalAsync(new DisciplinaPage());
+                PickerPreRequisito.Items.Add(disciplina2.Nome);
             }
         }
-        void OnButtonClicked0(object sender, EventArgs args)
+
+        private void ButtonSalvar_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new DisciplinaPage());
+            Listas.Disciplinas.RemoveAt(PickerListaDisciplinasExistentes.SelectedIndex);
+            Disciplina disciplina = new Disciplina(NomeDisciplinas.Text);
+            disciplina.Horas = Convert.ToInt32(disciplina.Horas);
+            if (PickerPreRequisito.SelectedIndex >= 0)
+            {
+                disciplina.Requisito = Listas.Disciplinas.ElementAt(PickerPreRequisito.SelectedIndex);
+            }
+
+            PickerListaDisciplinasExistentes.Items.Clear();
+            PickerPreRequisito.Items.Clear();
+            Listas.Disciplinas.Add(disciplina);
+            foreach (Disciplina Disciplina in Listas.Disciplinas)
+            {
+                if (disciplina.Requisito != null)
+                {
+                    PickerListaDisciplinasExistentes.Items.Add(disciplina.Nome + " - " + disciplina.Horas + "horas. " + "Pré-requisito:" + disciplina.Requisito.Nome);
+                }
+                else
+                {
+                    PickerListaDisciplinasExistentes.Items.Add(disciplina.Nome + " - " + disciplina.Horas + "horas.");
+                }
+                PickerPreRequisito.Items.Add(Disciplina.Nome);
+            }
+            DisplayAlert("Operação", "Disciplina editada!", "Ok");
+            NomeDisciplinas.Text = " ";
+            EntryHoras.Text = " ";
+        }
+
+        private void ButtonExcluir_Clicked(object sender, EventArgs e)
+        {
+            Listas.Disciplinas.RemoveAt(PickerListaDisciplinasExistentes.SelectedIndex);
+            PickerListaDisciplinasExistentes.Items.Clear();
+            foreach (Disciplina Disciplina in Listas.Disciplinas)
+            {
+                PickerListaDisciplinasExistentes.Items.Add(Disciplina.Nome + "-" + Disciplina.Horas + "h");
+            }
+            DisplayAlert("Operação", "Disciplina excluida!", "Ok");
         }
     }
 }

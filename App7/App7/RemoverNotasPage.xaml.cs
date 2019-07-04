@@ -10,13 +10,13 @@ using App7.Modelos;
 
 namespace App7
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LançarNotaPage : ContentPage
-    {
-        public LançarNotaPage()
-        {
-            InitializeComponent();
-        }
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class RemoverNotasPage : ContentPage
+	{
+		public RemoverNotasPage ()
+		{
+			InitializeComponent ();
+		}
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -38,23 +38,16 @@ namespace App7
             }
         }
 
-
         void OnButtonClicked(object sender, EventArgs args)
         {
-            if (Picker.SelectedIndex >= 0 && Picker1.SelectedIndex >= 0 && Entry.Text != null && Entry1.Text != null)
+            if (Picker.SelectedIndex >= 0 && Picker1.SelectedIndex >= 0)
             {
                 Historico historico = Listas.Matriculas.ElementAt(Picker.SelectedIndex).Historicos.ElementAt(Picker1.SelectedIndex);
-                historico.Notas.Add(new Nota()
-                {
-                    Valor = float.Parse(Entry.Text),
-                    Data = DateTime.Parse(Entry1.Text)
-                });
-
+                historico.Notas.RemoveAt(Picker1.SelectedIndex);
 
                 Navigation.PushModalAsync(new HistoricoPage());
             }
             else { }
         }
-
     }
 }

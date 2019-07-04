@@ -64,16 +64,16 @@ namespace App7
 
         void OnButtonClicked(object sender, EventArgs args)
         {
-            Navigation.PushModalAsync(new Lançar_notas());
+            Navigation.PushModalAsync(new LançarNotaPage());
         }
         void OnButtonClicked1(object sender, EventArgs args)
         {
-            Navigation.PushModalAsync(new Remover_notas());
+            Navigation.PushModalAsync(new RemoverNotasPage());
         }
 
         void OnButtonClicked2(object sender, EventArgs args)
         {
-            Navigation.PushModalAsync(new Lançar_faltas());
+            Navigation.PushModalAsync(new LançarFaltasPage());
         }
     }
 }

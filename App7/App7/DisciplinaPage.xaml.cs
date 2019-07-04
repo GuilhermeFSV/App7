@@ -50,7 +50,7 @@ namespace App7
 
         private void ButtonAssociar_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new AssociarDisciplinaPage());//********************************
+            Navigation.PushModalAsync(new AssociarDisciplinasPage());
 
         }
     }
